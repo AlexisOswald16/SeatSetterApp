@@ -4,17 +4,26 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.seatsetterapp"
-        minSdkVersion 19
+        minSdkVersion 23
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    packagingOptions{
+        exclude 'META_INF/DEPENDENCIES'
+        exclude 'META_INF/NOTICE'
+        exclude 'META_INF/NOTICE.txt'
+        exclude 'META_INF/LICENSE'
+        exclude 'META_INF/LICENCE.txt'
     }
 }
 
@@ -26,4 +35,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.android.support:gridlayout-v7:28.0.0'
+    compile fileTree(dir:'libs',include:['*.jar'])
+    compile 'com.android.support:multidex:1.0.1'
 }

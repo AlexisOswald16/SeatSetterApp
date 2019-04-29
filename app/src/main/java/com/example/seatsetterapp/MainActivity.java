@@ -8,7 +8,6 @@ import android.view.MenuItem;
 import android.content.Intent;
 
 
-
 public class MainActivity extends AppCompatActivity {
     @Override
 
@@ -22,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
-
 
 
     @Override

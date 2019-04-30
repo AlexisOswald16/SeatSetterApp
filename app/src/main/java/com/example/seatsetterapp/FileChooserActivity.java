@@ -1,6 +1,5 @@
 package com.example.seatsetterapp;
 
-
 import android.Manifest;
 import android.os.Build;
 import android.os.Bundle;
@@ -59,14 +58,14 @@ public class FileChooserActivity extends AppCompatActivity {
 
     ListView lvInternalStorage;
 
-    private void readExcelData(String filePath) {
+    private void readExcelData(Uri selectedFile) {
         Log.d(TAG, "readExceldata: Reading Excel File.");
         //declare input file
-        File inputFile = new File(filePath);
+        //File inputFile = new File(filePath);
 
 
         try {
-            InputStream inputStream = new FileInputStream(inputFile);
+            InputStream inputStream = getContentResolver().openInputStream(selectedFile);
             XSSFWorkbook workbook = new XSSFWorkbook(inputStream);
             XSSFSheet sheet = workbook.getSheetAt(0);
             int rowsCount = sheet.getPhysicalNumberOfRows();
@@ -250,7 +249,8 @@ public class FileChooserActivity extends AppCompatActivity {
             Uri selectedFile = data.getData(); //The uri with the location of the file
             String absolutePath = getContentResolver().getType(selectedFile);
             checkFilePermissions();
-            readExcelData(absolutePath);//written later
+
+            readExcelData(selectedFile);
         }
 
     }

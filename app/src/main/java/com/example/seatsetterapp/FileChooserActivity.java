@@ -32,9 +32,9 @@ public class FileChooserActivity extends AppCompatActivity {
 
     //Declaration of variables
     private static final String TAG = "MainActivity";
-    List<String> allNames = new ArrayList<>();
+    ArrayList<String> allNames;
 
-    ArrayList<String> names = new ArrayList<>(); //ArrayList that contains all names from excel file
+    ArrayList<String> names = new ArrayList<String>(); //ArrayList that contains all names from excel file
 
     private void readExcelData(Uri selectedFile) {
         try {
@@ -118,16 +118,18 @@ public class FileChooserActivity extends AppCompatActivity {
     }
 
     private List<String> parseArrayList(){
-        String all = names.get(0);
-        allNames = Arrays.asList(all.split("\\s*,\\s*"));
+        String first = names.get(0);
+        allNames = new ArrayList(Arrays.asList(first.split("\\s*,\\s*")));
+        allNames.add("    ");
         return allNames;
     }
     private void generateSeatingChart(){
         parseArrayList();
         ArrayList<Integer> numberList = new ArrayList<>();
-        for (int i = 1; i < allNames.size(); i++) {
+        for (int i = 0; i < allNames.size()-1; i++) {
             numberList.add(i);
         }
+
 
         Collections.shuffle(numberList); //generates random numbers to correspond with the names
         setAllTextViews(numberList);
@@ -135,7 +137,7 @@ public class FileChooserActivity extends AppCompatActivity {
     }
 
     private void setAllTextViews(ArrayList<Integer> numberList){
-        
+
         TextView T1 = (TextView)findViewById(R.id.T1);
         TextView T2 = (TextView)findViewById(R.id.T2);
         TextView T3 = (TextView)findViewById(R.id.T3);
@@ -169,9 +171,16 @@ public class FileChooserActivity extends AppCompatActivity {
 
        if(numberList.size() < 30){
            for(int i = numberList.size(); i < 30; i++){
-               numberList.add(0);
+               numberList.add(allNames.size()-1);
            }
        }
+
+
+       Log.d(TAG, numberList.toString());
+        Log.d(TAG, names.toString());
+
+        Log.d(TAG, allNames.toString());
+
 
         T1.setText("   "+ allNames.get(numberList.get(0)) + "   ");
         T2.setText("   "+ allNames.get(numberList.get(1)) + "   ");

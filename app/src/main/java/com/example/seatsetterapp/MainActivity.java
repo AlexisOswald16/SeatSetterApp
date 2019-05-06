@@ -9,8 +9,8 @@ import android.content.Intent;
 
 
 public class MainActivity extends AppCompatActivity {
-    @Override
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -19,6 +19,12 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View v) {
         Intent intent = new Intent(MainActivity.this, FileChooserActivity.class);
         startActivity(intent);
+
+    }
+
+    public void onClick2(View v) {
+        Intent intent2 = new Intent(MainActivity.this, WebPageActivity.class);
+        startActivity(intent2);
 
     }
 

@@ -43,6 +43,7 @@ public class FileChooserActivity extends AppCompatActivity implements View.OnCli
     private static final String TAG = "MainActivity";
     ArrayList<String> allNames;
     private Button saveButton;
+    TextView tview1;
 
 
     ArrayList<String> names = new ArrayList<String>(); //ArrayList that contains all names from excel file
@@ -278,7 +279,7 @@ public class FileChooserActivity extends AppCompatActivity implements View.OnCli
         switch (view.getId()) {
             case R.id.saveButton:
                 takeScreenshot();
-                Log.d(TAG,"Button was pressed");
+                tview1.setVisibility(View.VISIBLE);
         }
     }
 
@@ -295,6 +296,7 @@ public class FileChooserActivity extends AppCompatActivity implements View.OnCli
 
         saveButton = findViewById(R.id.saveButton);
         saveButton.setOnClickListener(this);
+        tview1 = findViewById(R.id.textView2);
 
     }
 

@@ -37,6 +37,14 @@
             android:onClick="onClick"
             android:text="@string/upload_excel_file" />
 
+        <Button
+            android:id="@+id/helpBtn"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:onClick="onClick2"
+            android:text="Help" />
+
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

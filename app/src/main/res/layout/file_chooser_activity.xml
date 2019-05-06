@@ -330,6 +330,20 @@
 
         </android.support.v7.widget.GridLayout>
 
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save As Image"
+            />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your seating chart has been saved to photos!"
+            android:visibility="invisible" />
+
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

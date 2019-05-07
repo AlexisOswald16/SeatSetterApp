@@ -18,7 +18,7 @@ public class WebPageActivity extends AppCompatActivity {
         webview.getSettings().setJavaScriptEnabled(true);
         webview.getSettings().setDomStorageEnabled(true);
         webview.setOverScrollMode(WebView.OVER_SCROLL_NEVER);
-        webview.loadUrl("https://www.youtube.com");
+        webview.loadUrl("https://youtu.be/rMA5_Tk6jd0");
     }
 
 }
